@@ -1,0 +1,36 @@
+
+****************************SQOOP*******************************
+sqoop list-databases --connect jdbc:mysql://localhost?useSSL=false --username msis --password manipal
+sqoop list-databases --connect jdbc:mysql://localhost?useSSL=false --username msis --password manipal
+sqoop list-tables --connect jdbc:mysql://localhost/retail_db?useSSL=false --username msis --password manipal
+sqoop import --connect jdbc:mysql://localhost/retail_db?useSSL=false --username msis --password manipal --table customers --target-dir '/testBDA/table'
+sqoop import --connect jdbc:mysql://localhost/retail_db?useSSL=false --username msis --password manipal --table products --warehouse-dir '/testBDA/retail_db'
+sqoop import --connect jdbc:mysql://localhost/retail_db?useSSL=false --username msis --password manipal --table departments --warehouse-dir '/testBDA/retail_db'
+qoop import --connect jdbc:mysql://localhost/retail_db?useSSL=false --username msis --password manipal --table departments --target-dir 'user/partial_department' --where "department_id<5"
+sqoop import --connect jdbc:mysql://localhost/retail_db?useSSL=false --username msis --password manipal --table departments --target-dir '/user/partial_data' --where "department_id<5" -m1
+sqoop import --connect jdbc:mysql://localhost/retail_db?useSSL=false --username msis --password manipal --table categories --warehouse-dir '/testBDA/categories_table'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************HIVE CONCEPTS************************
+
+hive
+create table categories(category_id int, category_department_id int, category_name varchar(45)) row format delimited fields terminated by ',' stored as textfile;
+load data inpath '/testBDA/categories_table/categories' into table categories;
+select * from categories;
+
+
