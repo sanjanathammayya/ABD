@@ -1,0 +1,26 @@
+1(a)
+
+String line = value.toString();
+String[] token = line.split(" ");
+context.write(new Text(token[1]),new IntWritable(1));
+
+
+
+
+1(b)
+
+String line = value.toString();
+String[] fields = line.split(" ");
+context.write(new Text(String.join("-",fields[1],fields[2])),new IntWritable(1));
+
+1(c)
+
+String line = value.toString();
+String[] fields = line.split(" ");
+context.write(new Text(fields[3]),new IntWritable(1));
+
+1(d)
+
+String line = value.toString();
+String[] token = line.split(" ");
+context.write(new Text(String.join("-",token[3],token[1])),new IntWritable(1));
